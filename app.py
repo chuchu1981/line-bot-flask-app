@@ -87,19 +87,6 @@ def handle_message(event):
                     "style": "link",
                     "height": "sm"
                   },
-                  {
-                    "type": "separator",
-                    "margin": "md"
-                  },
-                  {
-                    "type": "button",
-                    "action": {
-                      "type": "postback",
-                      "label": "💊 北北基特約藥局查詢",
-                      "data": "action=select_city&type=pharmacy" # pharmacy 為藥局，可自行擴充
-                    },
-                    "style": "link",
-                    "height": "sm"
                   }
                 ],
                 "spacing": "sm",
