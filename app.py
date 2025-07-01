@@ -82,7 +82,7 @@ def handle_message(event):
         if len(reply_list) > 5:
             reply_list = reply_list[:5]
             reply_list.append(f"\n...為您顯示前 5 筆，共找到 {len(reply_list)} 筆資料。")
-        ＃修改結束
+        # 修改結束
 
         if reply_list:
             # 如果找到醫院，格式化回覆訊息
