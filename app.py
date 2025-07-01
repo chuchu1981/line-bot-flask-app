@@ -2,11 +2,15 @@
 
 import os
 import json
+import urllib.parse
 from flask import Flask, request, abort
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
-from linebot.models import MessageEvent, TextMessage, TextSendMessage
-
+from linebot.models import (
+    MessageEvent, TextMessage, TextSendMessage,
+    PostbackEvent, QuickReply, QuickReplyButton,
+    MessageAction, PostbackAction, FlexSendMessage
+)
 app = Flask(__name__)
 
 # 從「環境變數」讀取金鑰，這是部署到正式主機的標準做法
