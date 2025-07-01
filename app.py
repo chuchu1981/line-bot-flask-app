@@ -71,9 +71,18 @@ def handle_message(event):
 
         # 新的搜尋邏輯，可以同時支援 '地區' 和 '行政區' 兩種欄位
         reply_list = [
-            f"🏥 {h['醫院名稱']}\n📍 地址: {h['醫院地址']}\n📞 電話: {h['醫院電話']}"
+            f"🏥 {h['醫院名稱']}\n"
+            f"📍 {h.get('醫院地址', '')}\n"
+            f"📞 {h.get('醫院電話', '')}\n"
+            f"🗺️ 地圖: https://www.google.com/maps/search/?api=1&query={urllib.parse.quote(h.get('醫院地址', ''))}"
             for h in hospital_data if area in h.get('地區', '') or area in h.get('行政區', '')
         ]
+
+        # 只顯示前 5 筆資料，避免訊息過長
+        if len(reply_list) > 5:
+            reply_list = reply_list[:5]
+            reply_list.append(f"\n...為您顯示前 5 筆，共找到 {len(reply_list)} 筆資料。")
+        ＃修改結束
 
         if reply_list:
             # 如果找到醫院，格式化回覆訊息
