@@ -30,6 +30,8 @@ try:
     with open('急診醫院清單_台北新北基隆.json', 'r', encoding='utf-8') as f:
         hospital_data = json.load(f)
     print("成功載入急診醫院清單資料！")
+    print(f"總共載入了 {len(hospital_data)} 筆資料。")
+    print(f"前三筆資料內容： {hospital_data[:3]}")
 except FileNotFoundError:
     print("錯誤：找不到 '急診醫院清單_台北新北基隆.json'。請確保檔案與 app.py 在同一個資料夾中。")
     hospital_data = [] # 如果找不到檔案，給一個空列表以避免程式崩潰
