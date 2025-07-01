@@ -65,10 +65,10 @@ def handle_message(event):
         # 從訊息中提取地區名稱
         area = msg.replace('查詢', '').replace('醫院', '').strip()
 
-        # 在資料中尋找符合地區的醫院
+        # 新的搜尋邏輯，可以同時支援 '地區' 和 '行政區' 兩種欄位
         reply_list = [
             f"🏥 {h['醫院名稱']}\n📍 地址: {h['醫院地址']}\n📞 電話: {h['醫院電話']}"
-            for h in hospital_data if area in h.get('地區', '')
+            for h in hospital_data if area in h.get('地區', '') or area in h.get('行政區', '')
         ]
 
         if reply_list:
