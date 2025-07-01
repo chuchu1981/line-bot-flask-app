@@ -87,7 +87,6 @@ def handle_message(event):
                     "style": "link",
                     "height": "sm"
                   },
-                  }
                 ],
                 "spacing": "sm",
                 "paddingAll": "12px"
