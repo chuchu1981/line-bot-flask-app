@@ -66,7 +66,7 @@ def handle_message(event):
         # 在資料中尋找符合地區的醫院
         reply_list = [
             f"🏥 {h['醫院名稱']}\n📍 地址: {h['醫院地址']}\n📞 電話: {h['醫院電話']}"
-            for h in hospital_data if h.get('地區') == f"{area}"
+            for h in hospital_data if area in h.get('地區', '')
         ]
 
         if reply_list:
